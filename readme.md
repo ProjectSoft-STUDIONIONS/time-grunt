@@ -14,7 +14,7 @@ Deprecated because Grunt is practically unmaintained. Move on to something bette
 ## Install
 
 ```
-$ npm install --save-dev time-grunt
+$ npm install --save-dev https://github.com/ProjectSoft-STUDIONIONS/time-grunt.git
 ```
 
 
