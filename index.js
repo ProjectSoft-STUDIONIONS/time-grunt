@@ -44,7 +44,19 @@ module.exports = function (grunt, cb) {
 		process.emit('timegruntexit', exitCode);
 		exit = function () {};
 	};
-
+	var colorFn = function() {
+		const consoleControl = require('console-control-strings');
+		const colorText = function(text) {
+			var len = text.length;
+			var str = new Array(len + 3).join('\xA0');
+			log([consoleControl.color('white', 'bgWhite') + str + consoleControl.color('reset')]);
+			log([consoleControl.color('white', 'bgBlue') + '\xA0' + text + '\xA0' + consoleControl.color('reset')]);
+			log([consoleControl.color('red', 'bgRed') + str + consoleControl.color('reset')]);
+		}
+		var done = this.async();
+		var banner = '#СвоихНеБросаем';//'ZА РОССИЮ!';
+		colorText(banner);
+	};
 	interval = setInterval(function () {
 		process.exit = exit;
 	}, 100);
@@ -163,6 +175,7 @@ module.exports = function (grunt, cb) {
 		// `grunt.log.header` should be unhooked above, but in some cases it's not
 		log('\n\n' + chalk.underline('Execution Time') + chalk.gray(' (' + startTimePretty + ')'));
 		log(formatTable(tableData) + '\n');
+		colorFn();
 
 		if (cb) {
 			cb(tableData, function () {
