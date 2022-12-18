@@ -53,7 +53,6 @@ module.exports = function (grunt, cb) {
 			log([consoleControl.color('white', 'bgBlue') + '\xA0' + text + '\xA0' + consoleControl.color('reset')]);
 			log([consoleControl.color('red', 'bgRed') + str + consoleControl.color('reset')]);
 		}
-		var done = this.async();
 		var banner = '#СвоихНеБросаем';//'ZА РОССИЮ!';
 		colorText(banner);
 	};
